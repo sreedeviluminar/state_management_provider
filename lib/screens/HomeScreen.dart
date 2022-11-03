@@ -60,8 +60,7 @@ class _HomeScreenproviderState extends State<HomeScreenprovider> {
                       elevation: 4,
                       child: ListTile(
                         title: Text(currentMovie.title),
-                        subtitle:
-                            Text(currentMovie.runtime ?? 'No information'),
+                        subtitle: Text(currentMovie.runtime ?? 'No information'),
                         trailing: IconButton(
                           icon: Icon(
                             Icons.favorite,
