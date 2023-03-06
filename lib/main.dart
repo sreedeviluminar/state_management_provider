@@ -5,7 +5,8 @@ import 'package:state_management_provider/provider/movie_provider.dart';
 import 'package:state_management_provider/screens/HomeScreen.dart';
 
 void main() {
-  runApp(ChangeNotifierProvider<MovieProvider>(
+  runApp(
+      ChangeNotifierProvider<MovieProvider>(
     child: MyApp(),
     create: (_) => MovieProvider(), // Create a new ChangeNotifier object
   ));

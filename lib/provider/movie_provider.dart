@@ -9,6 +9,7 @@ final List<Movie> initialData = List.generate(50,
         title: "Movie $index",
         runtime: "${Random().nextInt(100) + 60} minutes"));
 
+
 class MovieProvider with ChangeNotifier {
   // All movies (that will be displayed on the Home screen)
   final List<Movie> _movies = initialData;

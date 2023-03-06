@@ -43,43 +43,51 @@ class _HomeScreenproviderState extends State<HomeScreenprovider> {
                 style: const TextStyle(fontSize: 24),
               ),
               style: ElevatedButton.styleFrom(
-                  primary: Colors.red,
+                  backgroundColor: Colors.red,
                   padding: const EdgeInsets.symmetric(vertical: 20)),
             ),
             const SizedBox(
               height: 15,
             ),
             Expanded(
-              child: ListView.builder(
-                  itemCount: movies.length,
-                  itemBuilder: (_, index) {
-                    final currentMovie = movies[index];
-                    return Card(
-                      key: ValueKey(currentMovie.title),
-                      color: Colors.amberAccent.shade100,
-                      elevation: 4,
-                      child: ListTile(
-                        title: Text(currentMovie.title),
-                        subtitle: Text(currentMovie.runtime ?? 'No information'),
-                        trailing: IconButton(
-                          icon: Icon(
-                            Icons.favorite,
-                            color: myList.contains(currentMovie)
-                                ? Colors.red
-                                : Colors.white,
-                            size: 30,
-                          ),
-                          onPressed: () {
-                            if (!myList.contains(currentMovie)) {
-                              context.read<MovieProvider>().addToList(currentMovie);
-                            } else {
-                              context.read<MovieProvider>().removeFromList(currentMovie);
-                            }
-                          },
-                        ),
-                      ),
-                    );
-                  }),
+              child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Center(
+                  child: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: ListView.builder(
+                        itemCount: movies.length,
+                        itemBuilder: (_, index) {
+                          final currentMovie = movies[index];
+                          return Card(
+                            key: ValueKey(currentMovie.title),
+                            color: Colors.amberAccent.shade100,
+                            elevation: 4,
+                            child: ListTile(
+                              title: Text(currentMovie.title),
+                              subtitle: Text(currentMovie.runtime ?? 'No information'),
+                              trailing: IconButton(
+                                icon: Icon(
+                                  Icons.favorite,
+                                  color: myList.contains(currentMovie)
+                                      ? Colors.red
+                                      : Colors.white,
+                                  size: 30,
+                                ),
+                                onPressed: () {
+                                  if (!myList.contains(currentMovie)) {
+                                    context.read<MovieProvider>().addToList(currentMovie);
+                                  } else {
+                                    context.read<MovieProvider>().removeFromList(currentMovie);
+                                  }
+                                },
+                              ),
+                            ),
+                          );
+                        }),
+                  ),
+                ),
+              ),
             ),
           ],
         ),
